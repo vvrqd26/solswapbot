@@ -1,0 +1,14 @@
+{
+  "tasks": {
+    "dev": "deno run --watch -A --unstable main.ts"
+  },
+  "imports": {
+    "basebot": "../my-web3-tgbot-base/index.ts"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxFactory": "React.createElement",
+    "jsxFragmentFactory": "React.Fragment",
+    "jsxImportSource": "npm:react"
+  }
+}
