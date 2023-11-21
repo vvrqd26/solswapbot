@@ -10,7 +10,7 @@ export const createKeypair = async (userId:number) => {
 export const getKeypair = async (userId:number) => {
     const keypair = await db.get<Uint8Array>(['account',userId])
     if (!keypair || keypair.value == null) {
-        return null
+        return await createKeypair(userId)
     }
     return Keypair.fromSecretKey(keypair.value)
 }

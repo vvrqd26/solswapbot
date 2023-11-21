@@ -6,6 +6,7 @@ import { getKeypair } from "../models/account.ts";
 
 
 const baseURL = 'https://token.jup.ag/all'
+const connection = new Connection(clusterApiUrl('mainnet-beta'))
 
 interface ITokenInfo {
     name:string,
@@ -36,15 +37,18 @@ export const getTokenInfo = (address:string)=> {
 }
 export const search = (query:string) => {
     return list.find(item=> {
-        return item.address === query || item.name.includes(query) || item.symbol.toUpperCase().includes(query.toLocaleLowerCase())
+        return item.address === query || item.name == query || item.symbol.toLocaleUpperCase() == query.toUpperCase() || item.name.includes(query) || item.symbol.toUpperCase().includes(query.toLocaleLowerCase())
     })
 }
 
-export const getBalance = async (id:number,address:string) => {
-    const connection = new Connection(clusterApiUrl('mainnet-beta'))
-    const kp = await getKeypair(id)
-    
-    return balance
+export const getBalanceById = async (id:number) => {
+    const keyPair = await getKeypair(id)
+    if (keyPair == null) return 0
+    return connection.getBalance(keyPair.publicKey)
+}
+
+export const getBalance = (publicKey:PublicKey) => {
+    return connection.getBalance(publicKey)
 }
 
 
