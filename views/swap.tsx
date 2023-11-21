@@ -83,7 +83,7 @@ export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
       ],
       [
         {
-          text: `💵 ${swapType} Amount 💵`,
+          text: `💵 ${swapType.toLocaleUpperCase()} Amount 💵`,
           callback_data: `noaction`,
         },
       ],
@@ -108,7 +108,7 @@ export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
           callback_data: `/swap:${swapType}:${tokenAddress}:10`,
         },
         {
-          text: "custom",
+          text: "Custom",
           callback_data: `/ia:${swapType}:${tokenAddress}:${amount}`,
         },
       ],
