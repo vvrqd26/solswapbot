@@ -7,19 +7,17 @@ import { Swap } from "./views/swap.tsx";
 import { InputToken } from "./views/InputToken.tsx";
 import { InputAmount } from "./views/inputAmount.tsx";
 
-const {startWith,commandAndCallback,command,callback} = router
+const {startWith,command,callback} = router
 
 command(startWith('/start'),Start)
 command(/^[^/].*$/,Token)
+command(startWith('/wallet'),Wallet)
+command(startWith('/social'),)
 
 callback(startWith('/start'),StartQuery,"self")
 callback(startWith('/soon'),SoonQuery,'self')
 callback(startWith('/swap'),Swap,'self')
 callback(/^\/inputToken$/,InputToken,'self')
 callback(startWith('/ia'),InputAmount,'self')
-
-commandAndCallback(startWith('/wallet'),{
-    command: Wallet,
-    callback: WalletQuery,
-},'self')
+callback(startWith('/wallet'),WalletQuery,'self')
 
