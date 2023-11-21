@@ -4,20 +4,29 @@ import { createKeypair, getKeypair } from "../models/account.ts";
 import { binary_to_base58 } from "https://esm.sh/base58-js@2.0.0"
 import { CallbackHandler, MessageHandler,router } from "basebot";
 import {Keypair} from 'npm:@solana/web3.js'
+import { getBalance } from "../api/token.ts";
 
-const WalletView = (keypair:Keypair,showPrivateKey:boolean,isNewAccount:boolean)=>{
+const WalletView = async (keypair:Keypair,showPrivateKey:boolean,isNewAccount:boolean)=>{
+    const balance = await getBalance(keypair.publicKey)
     return {
         node: <div>
             {isNewAccount ? <div>✅ Create Wallet Success</div> : <div>✅ Load Wallet Success</div>}
-            <div>💰 Your Wallet Public:</div>
+            <div>💰 Your Wallet Address:</div>
             <code>{keypair.publicKey.toBase58()}</code>
-            
+            <div>🏦 Balance: {balance} SOL</div>
+            <div>Tap to copy the address and send SOL to deposit </div>
             {
                 showPrivateKey? <div><div>🔑 Your Private Key:</div><address>{binary_to_base58(keypair.secretKey)}</address></div>:""
             }
             <div></div>
         </div>,
         btns: [
+            [
+                {
+                    text: '🌐 View on Solscan',
+                    url: 'https://solscan.io/account/' + keypair.publicKey.toBase58()
+                }
+            ],
             [
                 showPrivateKey ?
                 {
@@ -47,7 +56,7 @@ export const Wallet:MessageHandler = async (msg:Message)=> {
         isNewAccount = true
         keypair = await createKeypair(userId);
     }
-    return WalletView(keypair,false,isNewAccount)
+    return await WalletView(keypair,false,isNewAccount)
 }
 
 export const WalletQuery:CallbackHandler = async (msg:CallbackQuery)=>{
@@ -57,5 +66,5 @@ export const WalletQuery:CallbackHandler = async (msg:CallbackQuery)=>{
     if (keypair == null) return {
         node: <div>You do not have a wallet yet, click /wallet to create a wallet.</div>
     }
-    return WalletView(keypair,args[0] == 'true',false)
+    return await WalletView(keypair,args[0] == 'true',false)
 }
