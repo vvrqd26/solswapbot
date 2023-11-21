@@ -10,11 +10,15 @@ export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
   const swapType = args[0];
   const tokenAddress = args[1] ?? "";
   const amount = Number(args[2] ?? "1");
-  const custom = args[3] ?? false;
+  const custom = args[3] ?? "f";
+  const confirm = args[4] ?? "f";
   const tokenInfo = await search(tokenAddress);
   const balance = await getBalanceById(msg.from.id);
   const slippage = (await getSlippage(msg.from.id)).value ?? 0.5;
-  if (args[4]) {
+  if (custom == "t") {
+    // 输入自定义数量
+  }
+  if (confirm == "t") {
     if (balance < amount) {
       bot.answerCallbackQuery(msg.id, {
         text: "⚠️ You don't have enough balance",
@@ -87,7 +91,7 @@ export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
       [
         {
           text: (amount == 0.5 ? "✅" : " ") + "0.5 SOL",
-          callback_data: `/swap:${swapType}:${tokenAddress}:5`,
+          callback_data: `/swap:${swapType}:${tokenAddress}:0.5`,
         },
         {
           text: (amount == 1 ? "✅" : " ") + "1 SOL",
@@ -105,7 +109,7 @@ export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
         },
         {
           text: "custom",
-          callback_data: `/swap:${swapType}:${tokenAddress}:0:t`,
+          callback_data: `/inputAmount:${swapType}:${tokenAddress}`,
         },
       ],
       [
