@@ -21,57 +21,57 @@ export const InputAmount: CallbackHandler = async (msg: CallbackQuery) => {
       [
         {
           text: "1",
-          callback_data: `/inputAmount:${swapType}:${address}:${inamount}1`,
+          callback_data: `/ia:${swapType}:${address}:${inamount}1`,
         },
         {
           text: "2",
-          callback_data: `/inputAmount:${swapType}:${address}:${inamount}2`,
+          callback_data: `/ia:${swapType}:${address}:${inamount}2`,
         },
         {
           text: "3",
-          callback_data: `/inputAmount:${swapType}:${address}:${inamount}3`,
+          callback_data: `/ia:${swapType}:${address}:${inamount}3`,
         },
       ],
       [
         {
           text: "4",
-          callback_data: `/inputAmount:${swapType}:${address}:${inamount}4`,
+          callback_data: `/ia:${swapType}:${address}:${inamount}4`,
         },
         {
           text: "5",
-          callback_data: `/inputAmount:${swapType}:${address}:${inamount}5`,
+          callback_data: `/ia:${swapType}:${address}:${inamount}5`,
         },
         {
           text: "6",
-          callback_data: `/inputAmount:${swapType}:${address}:${inamount}6`,
+          callback_data: `/ia:${swapType}:${address}:${inamount}6`,
         },
       ],
       [
         {
           text: "7",
-          callback_data: `/inputAmount:${swapType}:${address}:${inamount}7`,
+          callback_data: `/ia:${swapType}:${address}:${inamount}7`,
         },
         {
           text: "8",
-          callback_data: `/inputAmount:${swapType}:${address}:${inamount}8`,
+          callback_data: `/ia:${swapType}:${address}:${inamount}8`,
         },
         {
           text: "9",
-          callback_data: `/inputAmount:${swapType}:${address}:${inamount}9`,
+          callback_data: `/ia:${swapType}:${address}:${inamount}9`,
         },
       ],
       [
         {
           text: ".",
-          callback_data: `/inputAmount:${swapType}:${address}:${inamount}.`,
+          callback_data: `/ia:${swapType}:${address}:${inamount}.`,
         },
         {
           text: "0",
-          callback_data: `/inputAmount:${swapType}:${address}:${inamount}0`,
+          callback_data: `/ia:${swapType}:${address}:${inamount}0`,
         },
         {
           text: "delete",
-          callback_data: `/inputAmount:${swapType}:${address}:${inamount
+          callback_data: `/ia:${swapType}:${address}:${inamount
             .toString()
             .slice(0, inamount.toString().length - 1)}`,
         },

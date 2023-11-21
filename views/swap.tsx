@@ -109,7 +109,7 @@ export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
         },
         {
           text: "custom",
-          callback_data: `/inputAmount:${swapType}:${tokenAddress}`,
+          callback_data: `/ia:${swapType}:${tokenAddress}:${amount}`,
         },
       ],
       [

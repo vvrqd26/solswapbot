@@ -16,7 +16,7 @@ callback(startWith('/start'),StartQuery,"self")
 callback(startWith('/soon'),SoonQuery,'self')
 callback(startWith('/swap'),Swap,'self')
 callback(/^\/inputToken$/,InputToken,'self')
-callback(startWith('/inputAmount'),InputAmount,'self')
+callback(startWith('/ia'),InputAmount,'self')
 
 commandAndCallback(startWith('/wallet'),{
     command: Wallet,
