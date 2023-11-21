@@ -6,7 +6,7 @@ import { getKeypair } from "../models/account.ts";
 
 
 const baseURL = 'https://token.jup.ag/all'
-const connection = new Connection(clusterApiUrl('mainnet-beta'))
+export const connection = new Connection(clusterApiUrl('mainnet-beta'))
 
 interface ITokenInfo {
     name:string,

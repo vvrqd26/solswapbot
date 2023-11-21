@@ -1299,11 +1299,17 @@
       }
     }
   },
+  "redirects": {
+    "https://deno.land/x/buffer/mod.ts": "https://deno.land/x/buffer@v1.0.0/mod.ts",
+    "https://denopkg.com/chiefbiiko/base64/mod.ts": "https://denopkg.com/chiefbiiko/base64@master/mod.ts"
+  },
   "remote": {
     "https://deno.land/std@0.201.0/dotenv/load.ts": "0636983549b98f29ab75c9a22a42d9723f0a389ece5498fe971e7bb2556a12e2",
     "https://deno.land/std@0.201.0/dotenv/mod.ts": "1da8c6d0e7f7d8a5c2b19400b763bc11739df24acec235dda7ea2cfd3d300057",
     "https://deno.land/x/momentjs@2.29.1-deno/mod.ts": "f0c8542988b812d2aeaabe4fe3d86e7638ba6dd469ac9dd252eb2d9a765b8b49",
     "https://deno.land/x/momentjs@2.29.1-deno/node_modules/moment/moment.js": "7ba0da6b25146fe95a948b47ec8a7707b4bcf6a87390d4b655a0663e107f7845",
+    "https://denopkg.com/chiefbiiko/base64@master/base.ts": "47dc8d68f07dc91524bdd6db36eccbe59cf4d935b5fc09f27357a3944bb3ff7b",
+    "https://denopkg.com/chiefbiiko/base64@master/mod.ts": "1cbdc4ba7229d3c6d1763fecdb9d46844777c7e153abb6dabea8b0dd01448db4",
     "https://esm.sh/base58-js@2.0.0": "fe1f3c2e43b45224cb4e63ec7cc33860017da34b0d33eb7576ed3fbb727120f7",
     "https://esm.sh/v134/base58-js@2.0.0/denonext/base58-js.mjs": "2e1dd6c8bb80243099206d43caa44db67432b1b0a7f2ac0567054885a3eba6ae",
     "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/abis/erc20.ts": "4c74b12c16e77294f6443e9b47806f8428bd55ce7ef1f2ec7dae9757a00e43c8",

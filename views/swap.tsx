@@ -2,6 +2,8 @@ import { CallbackHandler, bot, router } from "basebot";
 import { CallbackQuery } from "npm:@types/node-telegram-bot-api";
 import { getBalance, getBalanceById, search } from "../api/token.ts";
 import { getPrice } from "../api/pricev4.ts";
+import { execTx, getSwapTx } from "../api/swapv6.ts";
+import { getSlippage } from "../models/account.ts";
 
 export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
   const { args } = router.parseCommand(msg.data!);
@@ -11,12 +13,27 @@ export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
   const custom = args[3] ?? false;
   const tokenInfo = await search(tokenAddress);
   const balance = await getBalanceById(msg.from.id);
-  if (args[5]) {
+  const slippage = (await getSlippage(msg.from.id)).value ?? 0.5;
+  if (args[4]) {
     if (balance < amount) {
       bot.answerCallbackQuery(msg.id, {
         text: "⚠️ You don't have enough balance",
         show_alert: true,
       });
+    } else {
+      const [inputMint, outputMint] =
+        swapType == "buy"
+          ? ["So11111111111111111111111111111111111111112", tokenAddress]
+          : [tokenAddress, "So11111111111111111111111111111111111111112"];
+      const tx = await getSwapTx(
+        msg.from.id,
+        inputMint,
+        outputMint,
+        amount,
+        slippage * 100
+      );
+      const txid = execTx(tx);
+      bot.sendMessage(msg.from.id, `✅ Swap transaction sent, TXID: ${txid}`);
     }
   }
   if (!tokenInfo) {
@@ -66,97 +83,37 @@ export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
           callback_data: `noaction`,
         },
       ],
-      ...(custom
-        ? [
-            [
-              {
-                text: "1",
-                callback_data: `/swap:${swapType}:${tokenAddress}:${amount}1:true`,
-              },
-              {
-                text: "2",
-                callback_data: `/swap:${swapType}:${tokenAddress}:${amount}2:true`,
-              },
-              {
-                text: "3",
-                callback_data: `/swap:${swapType}:${tokenAddress}:${amount}3:true`,
-              },
-            ],
-            [
-              {
-                text: "4",
-                callback_data: `/swap:${swapType}:${tokenAddress}:${amount}4:true`,
-              },
-              {
-                text: "5",
-                callback_data: `/swap:${swapType}:${tokenAddress}:${amount}5:true`,
-              },
-              {
-                text: "6",
-                callback_data: `/swap:${swapType}:${tokenAddress}:${amount}6:true`,
-              },
-            ],
-            [
-              {
-                text: "7",
-                callback_data: `/swap:${swapType}:${tokenAddress}:${amount}7:true`,
-              },
-              {
-                text: "8",
-                callback_data: `/swap:${swapType}:${tokenAddress}:${amount}8:true`,
-              },
-              {
-                text: "9",
-                callback_data: `/swap:${swapType}:${tokenAddress}:${amount}9:true`,
-              },
-            ],
-            [
-              {
-                text: ".",
-                callback_data: `/swap:${swapType}:${tokenAddress}:${amount}\.:true`,
-              },
-              {
-                text: "0",
-                callback_data: `/swap:${swapType}:${tokenAddress}:${amount}0:true`,
-              },
-              {
-                text: "Delete",
-                callback_data: `/swap:${swapType}:${tokenAddress}:${amount
-                  .toString()
-                  .slice(0, amount.toString().length - 1)}`,
-              },
-            ],
-          ]
-        : [
-            [
-              {
-                text: (amount == 0.5 ? "✅" : " ") + "0.5 SOL",
-                callback_data: `/swap:${swapType}:${tokenAddress}:5`,
-              },
-              {
-                text: (amount == 1 ? "✅" : " ") + "1 SOL",
-                callback_data: `/swap:${swapType}:${tokenAddress}:1`,
-              },
-              {
-                text: (amount == 5 ? "✅" : " ") + "5 SOL",
-                callback_data: `/swap:${swapType}:${tokenAddress}:5`,
-              },
-            ],
-            [
-              {
-                text: (amount == 10 ? "✅" : " ") + "10 SOL",
-                callback_data: `/swap:${swapType}:${tokenAddress}:10`,
-              },
-              {
-                text: "custom",
-                callback_data: `/swap:${swapType}:${tokenAddress}:0:true`,
-              },
-            ],
-          ]),
+
+      [
+        {
+          text: (amount == 0.5 ? "✅" : " ") + "0.5 SOL",
+          callback_data: `/swap:${swapType}:${tokenAddress}:5`,
+        },
+        {
+          text: (amount == 1 ? "✅" : " ") + "1 SOL",
+          callback_data: `/swap:${swapType}:${tokenAddress}:1`,
+        },
+        {
+          text: (amount == 5 ? "✅" : " ") + "5 SOL",
+          callback_data: `/swap:${swapType}:${tokenAddress}:5`,
+        },
+      ],
+      [
+        {
+          text: (amount == 10 ? "✅" : " ") + "10 SOL",
+          callback_data: `/swap:${swapType}:${tokenAddress}:10`,
+        },
+        {
+          text: "custom",
+          callback_data: `/swap:${swapType}:${tokenAddress}:0:t`,
+        },
+      ],
       [
         {
           text: "🛒 Confirm",
-          callback_data: `/swap:${swapType}:${tokenAddress}:${amount}:false:confirm`,
+          callback_data: `/swap:${swapType}:${tokenAddress}:${amount}:${
+            custom == "t" ? "t" : "f"
+          }:t`,
         },
       ],
     ],
