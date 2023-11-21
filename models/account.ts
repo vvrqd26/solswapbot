@@ -14,3 +14,10 @@ export const getKeypair = async (userId:number) => {
     }
     return Keypair.fromSecretKey(keypair.value)
 }
+
+export const setSlippage = (id:number,s:number) => {
+    return db.set(['settings',id,'slippage'],s)
+}
+export const getSlippage = (id:number) => {
+    return db.get<number>(['settings',id,'slippage'])
+}
