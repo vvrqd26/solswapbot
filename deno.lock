@@ -4,15 +4,14 @@
     "specifiers": {
       "npm:@solana/spl-token": "npm:@solana/spl-token@0.3.9_@solana+web3.js@1.87.6",
       "npm:@solana/web3.js": "npm:@solana/web3.js@1.87.6",
-      "npm:@types/node": "npm:@types/node@18.16.19",
-      "npm:@types/node-telegram-bot-api": "npm:@types/node-telegram-bot-api@0.63.2",
-      "npm:@types/react": "npm:@types/react@18.2.37",
+      "npm:@types/node-telegram-bot-api": "npm:@types/node-telegram-bot-api@0.63.3",
+      "npm:@types/react": "npm:@types/react@18.2.38",
       "npm:node-telegram-bot-api": "npm:node-telegram-bot-api@0.64.0_@cypress+request@3.0.1",
       "npm:react": "npm:react@18.2.0"
     },
     "npm": {
-      "@babel/runtime@7.23.2": {
-        "integrity": "sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==",
+      "@babel/runtime@7.23.4": {
+        "integrity": "sha512-2Yv65nlWnWlSpe3fXEyX5i7fx5kIKo4Qbcj+hMO0odwaneFjfXw5fdum+4yL20O0QiaHpia0cYQ9xpNMqrBwHg==",
         "dependencies": {
           "regenerator-runtime": "regenerator-runtime@0.14.0"
         }
@@ -87,7 +86,7 @@
       "@solana/web3.js@1.87.6": {
         "integrity": "sha512-LkqsEBgTZztFiccZZXnawWa8qNCATEqE97/d0vIwjTclmVlc8pBpD1DmjfVHtZ1HS5fZorFlVhXfpwnCNDZfyg==",
         "dependencies": {
-          "@babel/runtime": "@babel/runtime@7.23.2",
+          "@babel/runtime": "@babel/runtime@7.23.4",
           "@noble/curves": "@noble/curves@1.2.0",
           "@noble/hashes": "@noble/hashes@1.3.2",
           "@solana/buffer-layout": "@solana/buffer-layout@4.0.1",
@@ -100,7 +99,7 @@
           "fast-stable-stringify": "fast-stable-stringify@1.0.0",
           "jayson": "jayson@4.1.0_ws@7.5.9",
           "node-fetch": "node-fetch@2.7.0",
-          "rpc-websockets": "rpc-websockets@7.6.2_bufferutil@4.0.8_utf-8-validate@5.0.10",
+          "rpc-websockets": "rpc-websockets@7.7.0_bufferutil@4.0.8_utf-8-validate@5.0.10",
           "superstruct": "superstruct@0.14.2"
         }
       },
@@ -114,8 +113,8 @@
           "@types/node": "@types/node@18.16.19"
         }
       },
-      "@types/node-telegram-bot-api@0.63.2": {
-        "integrity": "sha512-KSFYpXxIKyqZXGGYSc0KM/n64Lq/VbD6yVCVBbOTDrp/x9OlRLvOsjlHqxjVMYw6BF/Wi2mn0mcGG7A6THVdHw==",
+      "@types/node-telegram-bot-api@0.63.3": {
+        "integrity": "sha512-K0uo0em5IBqMqUrQ8l6bFgvlrFCyd6FLjVmn9xux7R/71kMDrNutCp8nd1WSaNp2D782JWcf0dbiS5iJofzOTw==",
         "dependencies": {
           "@types/node": "@types/node@18.16.19",
           "@types/request": "@types/request@2.48.12"
@@ -129,15 +128,15 @@
         "integrity": "sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==",
         "dependencies": {}
       },
-      "@types/prop-types@15.7.10": {
-        "integrity": "sha512-mxSnDQxPqsZxmeShFH+uwQ4kO4gcJcGahjjMFeLbKE95IAZiiZyiEepGZjtXJ7hN/yfu0bu9xN2ajcU0JcxX6A==",
+      "@types/prop-types@15.7.11": {
+        "integrity": "sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==",
         "dependencies": {}
       },
-      "@types/react@18.2.37": {
-        "integrity": "sha512-RGAYMi2bhRgEXT3f4B92WTohopH6bIXw05FuGlmJEnv/omEn190+QYEIYxIAuIBdKgboYYdVved2p1AxZVQnaw==",
+      "@types/react@18.2.38": {
+        "integrity": "sha512-cBBXHzuPtQK6wNthuVMV6IjHAFkdl/FOPFIlkd81/Cd1+IqkHu/A+w4g43kaQQoYHik/ruaQBDL72HyCy1vuMw==",
         "dependencies": {
-          "@types/prop-types": "@types/prop-types@15.7.10",
-          "@types/scheduler": "@types/scheduler@0.16.6",
+          "@types/prop-types": "@types/prop-types@15.7.11",
+          "@types/scheduler": "@types/scheduler@0.16.7",
           "csstype": "csstype@3.1.2"
         }
       },
@@ -150,8 +149,8 @@
           "form-data": "form-data@2.5.1"
         }
       },
-      "@types/scheduler@0.16.6": {
-        "integrity": "sha512-Vlktnchmkylvc9SnwwwozTv04L/e1NykF5vgoQ0XTmI8DD+wxfjQuHuvHS3p0r2jz2x2ghPs2h1FVeDirIteWA==",
+      "@types/scheduler@0.16.7": {
+        "integrity": "sha512-8g25Nl3AuB1KulTlSUsUhUo/oBgBU6XIXQ+XURpeioEbEJvkO7qI4vDfREv3vJYHHzqXjcAHvoJy4pTtSQNZtA==",
         "dependencies": {}
       },
       "@types/tough-cookie@4.0.5": {
@@ -311,7 +310,7 @@
       "bufferutil@4.0.8": {
         "integrity": "sha512-4T53u4PdgsXqKaIctwF8ifXlRTTmEPJ8iEPWFdGZvcf7sbwYo6FKFEX9eNNAnzFZ7EzJAQ3CJeOtCRA4rDp7Pw==",
         "dependencies": {
-          "node-gyp-build": "node-gyp-build@4.6.1"
+          "node-gyp-build": "node-gyp-build@4.7.0"
         }
       },
       "call-bind@1.0.5": {
@@ -862,8 +861,8 @@
           "whatwg-url": "whatwg-url@5.0.0"
         }
       },
-      "node-gyp-build@4.6.1": {
-        "integrity": "sha512-24vnklJmyRS8ViBNI8KbtK/r/DmXQMRiOMXTNz2nrTnAYUwjmEEbnnpB/+kt+yWRv73bPsSPRFddrcIbAxSiMQ==",
+      "node-gyp-build@4.7.0": {
+        "integrity": "sha512-PbZERfeFdrHQOOXiAKOY0VPbykZy90ndPKk0d+CFDegTKmWp1VgOTz2xACVbr1BjCWxrQp68CXtvNsveFhqDJg==",
         "dependencies": {}
       },
       "node-telegram-bot-api@0.64.0_@cypress+request@3.0.1": {
@@ -1010,10 +1009,10 @@
         "integrity": "sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==",
         "dependencies": {}
       },
-      "rpc-websockets@7.6.2_bufferutil@4.0.8_utf-8-validate@5.0.10": {
-        "integrity": "sha512-+M1fOYMPxvOQDHbSItkD/an4fRwPZ1Nft1zv48G84S0TyChG2A1GXmjWkbs3o2NxW+q36H9nM2uLo5yojTrPaA==",
+      "rpc-websockets@7.7.0_bufferutil@4.0.8_utf-8-validate@5.0.10": {
+        "integrity": "sha512-XYMzjxbDI0A9A2wwrx5/RswnZC53Av3bp5IOV9QnUdTuJ7Tstv4+V7vIe37pYYOn2wKYkbzkaeB8+I9oLztLOA==",
         "dependencies": {
-          "@babel/runtime": "@babel/runtime@7.23.2",
+          "@babel/runtime": "@babel/runtime@7.23.4",
           "bufferutil": "bufferutil@4.0.8",
           "eventemitter3": "eventemitter3@4.0.7",
           "utf-8-validate": "utf-8-validate@5.0.10",
@@ -1229,7 +1228,7 @@
       "utf-8-validate@5.0.10": {
         "integrity": "sha512-Z6czzLq4u8fPOyx7TU6X3dvUZVvoJmxSQ+IcrlmagKhilxlhZgxPK6C5Jqbkw1IDUmFTM+cz9QDnnLTwDz/2gQ==",
         "dependencies": {
-          "node-gyp-build": "node-gyp-build@4.6.1"
+          "node-gyp-build": "node-gyp-build@4.7.0"
         }
       },
       "util-deprecate@1.0.2": {
@@ -1300,93 +1299,22 @@
       }
     }
   },
-  "redirects": {
-    "https://deno.land/x/deno_dom/deno-dom-wasm.ts": "https://deno.land/x/deno_dom@v0.1.43/deno-dom-wasm.ts",
-    "https://esm.sh/@solana/spl-token": "https://esm.sh/@solana/spl-token@0.3.9",
-    "https://esm.sh/@solana/web3.js": "https://esm.sh/@solana/web3.js@1.87.6",
-    "https://esm.sh/base58-js": "https://esm.sh/base58-js@2.0.0"
-  },
   "remote": {
     "https://deno.land/std@0.201.0/dotenv/load.ts": "0636983549b98f29ab75c9a22a42d9723f0a389ece5498fe971e7bb2556a12e2",
     "https://deno.land/std@0.201.0/dotenv/mod.ts": "1da8c6d0e7f7d8a5c2b19400b763bc11739df24acec235dda7ea2cfd3d300057",
-    "https://deno.land/x/deno_dom@v0.1.43/build/deno-wasm/deno-wasm.js": "d6841a06342eb6a2798ef28de79ad69c0f2fa349fa04d3ca45e5fcfbf50a9340",
-    "https://deno.land/x/deno_dom@v0.1.43/deno-dom-wasm.ts": "a33d160421bbb6e3104285ea5ebf33352b7ad50d82ea8765e3cf65f972b25119",
-    "https://deno.land/x/deno_dom@v0.1.43/src/api.ts": "0ff5790f0a3eeecb4e00b7d8fbfa319b165962cf6d0182a65ba90f158d74f7d7",
-    "https://deno.land/x/deno_dom@v0.1.43/src/constructor-lock.ts": "59714df7e0571ec7bd338903b1f396202771a6d4d7f55a452936bd0de9deb186",
-    "https://deno.land/x/deno_dom@v0.1.43/src/deserialize.ts": "1cf4096678d8afed8ed28dbad690504c4d2c28149ba768b26eacd1416873425b",
-    "https://deno.land/x/deno_dom@v0.1.43/src/dom/document-fragment.ts": "1c7352a3c816587ed7fad574b42636198f680f17abc3836fcfe7799b31e7718f",
-    "https://deno.land/x/deno_dom@v0.1.43/src/dom/document.ts": "b8f4e4ccabaaa063d6562a0f2f8dea9c0419515d63d8bd79bfde95f7cd64bd93",
-    "https://deno.land/x/deno_dom@v0.1.43/src/dom/dom-parser.ts": "609097b426f8c2358f3e5d2bca55ed026cf26cdf86562e94130dfdb0f2537f92",
-    "https://deno.land/x/deno_dom@v0.1.43/src/dom/element.ts": "d5371cd83ff2128353c1975465c368ef83d7441568626b386557deba51315111",
-    "https://deno.land/x/deno_dom@v0.1.43/src/dom/elements/html-template-element.ts": "740b97a5378c9a14cccf3429299846eda240b613013e2d2d7f20b393897453c2",
-    "https://deno.land/x/deno_dom@v0.1.43/src/dom/html-collection.ts": "ae90197f5270c32074926ad6cf30ee07d274d44596c7e413c354880cebce8565",
-    "https://deno.land/x/deno_dom@v0.1.43/src/dom/node-list.ts": "4c6e4b4585301d4147addaccd90cb5f5a80e8d6290a1ba7058c5e3dfea16e15d",
-    "https://deno.land/x/deno_dom@v0.1.43/src/dom/node.ts": "3069e6fc93ac4111a136ed68199d76673339842b9751610ba06f111ba7dc10a7",
-    "https://deno.land/x/deno_dom@v0.1.43/src/dom/selectors/custom-api.ts": "852696bd58e534bc41bd3be9e2250b60b67cd95fd28ed16b1deff1d548531a71",
-    "https://deno.land/x/deno_dom@v0.1.43/src/dom/selectors/nwsapi-types.ts": "c43b36c36acc5d32caabaa54fda8c9d239b2b0fcbce9a28efb93c84aa1021698",
-    "https://deno.land/x/deno_dom@v0.1.43/src/dom/selectors/nwsapi.js": "985d7d8fc1eabbb88946b47a1c44c1b2d4aa79ff23c21424219f1528fa27a2ff",
-    "https://deno.land/x/deno_dom@v0.1.43/src/dom/selectors/selectors.ts": "83eab57be2290fb48e3130533448c93c6c61239f2a2f3b85f1917f80ca0fdc75",
-    "https://deno.land/x/deno_dom@v0.1.43/src/dom/selectors/sizzle-types.ts": "78149e2502409989ce861ed636b813b059e16bc267bb543e7c2b26ef43e4798b",
-    "https://deno.land/x/deno_dom@v0.1.43/src/dom/selectors/sizzle.js": "c3aed60c1045a106d8e546ac2f85cc82e65f62d9af2f8f515210b9212286682a",
-    "https://deno.land/x/deno_dom@v0.1.43/src/dom/utils-types.ts": "96db30e3e4a75b194201bb9fa30988215da7f91b380fca6a5143e51ece2a8436",
-    "https://deno.land/x/deno_dom@v0.1.43/src/dom/utils.ts": "4c6206516fb8f61f37a209c829e812c4f5a183e46d082934dd14c91bde939263",
-    "https://deno.land/x/deno_dom@v0.1.43/src/parser.ts": "e06b2300d693e6ae7564e53dfa5c9a9e97fdb8c044c39c52c8b93b5d60860be3",
     "https://deno.land/x/momentjs@2.29.1-deno/mod.ts": "f0c8542988b812d2aeaabe4fe3d86e7638ba6dd469ac9dd252eb2d9a765b8b49",
     "https://deno.land/x/momentjs@2.29.1-deno/node_modules/moment/moment.js": "7ba0da6b25146fe95a948b47ec8a7707b4bcf6a87390d4b655a0663e107f7845",
-    "https://esm.sh/@solana/spl-token@0.3.9": "798041791c3d45bd74cbe243597e66ae6ec416344b3ad9ac3e4a50d08303f4be",
-    "https://esm.sh/@solana/web3.js@1.87.1": "20b3a05ac7692b1dcfe8321df37f75d55ea9c3531e7392fac7e106f370f8fc8a",
-    "https://esm.sh/@solana/web3.js@1.87.6": "ab3c82e6b4f198ee0b8ae2aaa2b7db6b87880350fb8f9c49ba34e5c77ddb358b",
     "https://esm.sh/base58-js@2.0.0": "fe1f3c2e43b45224cb4e63ec7cc33860017da34b0d33eb7576ed3fbb727120f7",
-    "https://esm.sh/v134/@babel/runtime@7.23.2/denonext/helpers/asyncToGenerator.js": "dad19c51327b7e586a4b76e4d194a011aae15f2005ee85837ee4a6ff5bc87eaa",
-    "https://esm.sh/v134/@babel/runtime@7.23.2/denonext/helpers/classCallCheck.js": "011e0fd1cbdf5a96788d3d01c9f4d15621610352c9b76b149a9558d5003f23f3",
-    "https://esm.sh/v134/@babel/runtime@7.23.2/denonext/helpers/createClass.js": "9f2cc70a214259161f734800e6b75a5a949a947e3ed037dfe715824add1311ac",
-    "https://esm.sh/v134/@babel/runtime@7.23.2/denonext/helpers/getPrototypeOf.js": "dd9967a442c232f826f87cae3c6b7d605570b0c91e5b72b02c148994bbde766c",
-    "https://esm.sh/v134/@babel/runtime@7.23.2/denonext/helpers/inherits.js": "2f59fd58b85a443f81d57d2684fdd801969682bafa1e93dc0bae6fdb843fc287",
-    "https://esm.sh/v134/@babel/runtime@7.23.2/denonext/helpers/interopRequireDefault.js": "809dc81a0e1b2808c37188ceff7a847381d25b615e373d04673b0a974979bec1",
-    "https://esm.sh/v134/@babel/runtime@7.23.2/denonext/helpers/possibleConstructorReturn.js": "bd9747036294f7948c1755a69b3293843882a4654d43a2d72786d5a796ed1ad8",
-    "https://esm.sh/v134/@babel/runtime@7.23.2/denonext/helpers/typeof.js": "9d10291fbc1a8a57c34c269b8e93aeed827dd9b3e6d196defa5c58997e221d9b",
-    "https://esm.sh/v134/@babel/runtime@7.23.2/denonext/regenerator.js": "ba29c8ea1623bd3395b69cb47f134a53712d0546a808445110a6a0b88a0be276",
-    "https://esm.sh/v134/@noble/curves@1.2.0/denonext/ed25519.js": "72033ae62bf0ebe44d1d1876e57dcccdf6f430d269c012894e3bf3b6f8a3494d",
-    "https://esm.sh/v134/@noble/curves@1.2.0/denonext/secp256k1.js": "3ac3a6bdaf43b044403334b008d9ae452d31e03daf7dd9111965337d5c34020f",
-    "https://esm.sh/v134/@noble/hashes@1.3.2/denonext/crypto.js": "3d09b6d143b1cb8ec95375586a7d9a30a02b60cb1de984ba374c779f8e6c877a",
-    "https://esm.sh/v134/@noble/hashes@1.3.2/denonext/hmac.js": "944adf46d42a724e5a3bdeb121931e6bf80753f8eb0beaf3c793cf2628931773",
-    "https://esm.sh/v134/@noble/hashes@1.3.2/denonext/sha256.js": "81a81c347b04383297166beaee6b7189bc2fe0317d98492b3aa9eadd9d46dc8d",
-    "https://esm.sh/v134/@noble/hashes@1.3.2/denonext/sha3.js": "1a9cd1fc52c0c513ef4922cd3493bc044e9cbbf6d7fa6d25b4e908d54fdce43e",
-    "https://esm.sh/v134/@noble/hashes@1.3.2/denonext/sha512.js": "24df107d28bd51c98f5492aa6605eccec0aa063983150883a6710341f0771004",
-    "https://esm.sh/v134/@noble/hashes@1.3.2/denonext/utils.js": "8e4dfa276d5bf722e26e058084e6ff5ae41bbe4c3679823e6176b4f3a5a45838",
-    "https://esm.sh/v134/@solana/buffer-layout-utils@0.2.0/denonext/buffer-layout-utils.mjs": "b47d8b272b98d0a0e60855e47beee6ff3e8c997c9f2de053157f78c8492919d9",
-    "https://esm.sh/v134/@solana/buffer-layout@4.0.1/denonext/buffer-layout.mjs": "8a9f7caf309d30afa9406077cda857256401bff1e734662f2cfc2229f776abc6",
-    "https://esm.sh/v134/@solana/spl-token@0.3.9/denonext/spl-token.mjs": "b65742353756f9d7b3f76495c3fe2f236dca0839a27e2f985d309a53c726ba1e",
-    "https://esm.sh/v134/@solana/web3.js@1.87.1/denonext/web3.mjs": "22b06ea7a9aa9379f9b4ab850cbac9bfd02a63ae852aa3415b648500ac15f13e",
-    "https://esm.sh/v134/@solana/web3.js@1.87.6/denonext/web3.mjs": "7f58e2c41bfaf9739892ec681361f8aabf49c8bf1fc0611ca47131c9043d5164",
-    "https://esm.sh/v134/base-x@3.0.9/denonext/base-x.mjs": "c76c1082cf5ade8e104cd58b29a8d818d933664dc1302d96d326ff846f4e8508",
     "https://esm.sh/v134/base58-js@2.0.0/denonext/base58-js.mjs": "2e1dd6c8bb80243099206d43caa44db67432b1b0a7f2ac0567054885a3eba6ae",
-    "https://esm.sh/v134/bigint-buffer@1.1.5/denonext/bigint-buffer.mjs": "0205470ab943cadb0a44181d8fe5cf82f4efedc82d1305f62b21ce59cff90b54",
-    "https://esm.sh/v134/bignumber.js@9.1.2/denonext/bignumber.mjs": "881ca4ea8416ac1357be523dd209ad771bc9fa3c41b881ddae76592491a7007f",
-    "https://esm.sh/v134/bn.js@5.2.1/denonext/bn.mjs": "7b05196c10ac134bef7c46d544930542f89584d4a6129ed84f7d77c3c2ef4086",
-    "https://esm.sh/v134/borsh@0.7.0/denonext/borsh.mjs": "75a2602f0de3ef24193908508f56392a8e75b5da82ecea96e0144ccb1bf5f8da",
-    "https://esm.sh/v134/bs58@4.0.1/denonext/bs58.mjs": "284d3343a0a70b4ec8f57fef44724e53147fc3200f080315bde81394d947f344",
-    "https://esm.sh/v134/bufferutil@4.0.8/denonext/bufferutil.mjs": "af5b3a95e6365d06dad57562685810f71138640da242a1f6dc75d24efb1b90f7",
-    "https://esm.sh/v134/eventemitter3@4.0.7/denonext/eventemitter3.mjs": "6f8a6195e1a9effb73bb163c577400d608dec7c4e0bd839045fd9ea4db66e9fe",
-    "https://esm.sh/v134/jayson@4.1.0/denonext/lib/client/browser.js": "f72e5bb5531c991c26d3fd477edc1d42b783ced16e50f82791b5d2b618385596",
-    "https://esm.sh/v134/node-gyp-build@4.6.1/denonext/node-gyp-build.mjs": "5d28b312f145a6cb2ec0dbdd80a7d34c0e0e6b5dcada65411d8bcff6c8991cc6",
-    "https://esm.sh/v134/node_fetch.js": "b11355358cf61343a3c30bd5942df60a3586d13e2c979b515164bfe851662798",
-    "https://esm.sh/v134/rpc-websockets@7.6.0/denonext/dist/lib/client.js": "aaa50c632d7a1c807ba7eaa9af1b516c46bb5e35aa34e47208e20ec097f8fe24",
-    "https://esm.sh/v134/rpc-websockets@7.6.0/denonext/dist/lib/client/websocket.js": "d3a0323fb5311ca71a5b799ea7f7dd6bf96d3a4213a345a7ff5284a6ba294883",
-    "https://esm.sh/v134/safe-buffer@5.2.1/denonext/safe-buffer.mjs": "facbcb4f4622e13062978522fa12c42cae4e12f55b0e1d3fa1c4bc751bd827c7",
-    "https://esm.sh/v134/superstruct@0.14.2/denonext/superstruct.mjs": "f6e68cb60764113e9947014317992a2e44c75e7d762bbd99b37080bb408d71ba",
-    "https://esm.sh/v134/text-encoding-utf-8@1.0.2/denonext/text-encoding-utf-8.mjs": "aa44fc0fb23ea66c51e11444b7f72c6f2b1dc872183f7e756cd147e9fb871f2e",
-    "https://esm.sh/v134/utf-8-validate@6.0.3/denonext/utf-8-validate.mjs": "ad2f7cdbde001ea8d0026c90a3d6cc6a7f444870929e6df9e57a47d972c60d52",
-    "https://esm.sh/v134/uuid@8.3.2/denonext/uuid.mjs": "c0da38266b24ac79d62b02290f17caba7e75d078f6771bbe8fb61bdef60f837c",
-    "https://esm.sh/v134/ws@8.14.2/denonext/ws.mjs": "69d003006ad58ac5a3ee50e290ba628dff71aaa0c2fc72a91243d0fa38d1e150",
     "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/abis/erc20.ts": "4c74b12c16e77294f6443e9b47806f8428bd55ce7ef1f2ec7dae9757a00e43c8",
     "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/abis/erc20withMint.ts": "9e7068956bcadfce6a12f372140473514350e3c0bb59d9ebd097804bb038829e",
     "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/abis/index.ts": "5465087e54d5817578826226e6019c95255ab734fe65916fabfd9e11efdace5b",
     "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/bot/bot.ts": "00c20b096fe592786374de8b4697162ae999e96766b92ebbeeab0408a6f8ef2e",
-    "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/bot/index.ts": "f8ae40d2875f6defb06b2438bce114f2545d3053cf88307befa10f003dd9eda6",
-    "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/bot/messageHandler.ts": "60688c20e36339ad3701883e7587d163376ee910231dcddcfd19ecf06258fdd1",
-    "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/bot/render.ts": "2db075566dca2ad63ec9f41f6987d115b1396dd75b8743fedbb0db0c64ece0ed",
-    "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/db/index.ts": "545df6e5c9e2359b963fee079676f2596fdab530bd9659040a05172cd5041cb3",
+    "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/bot/index.ts": "a8a7e213e15f33048e3870cf570954cc63578c216e9c955aedc1361cf1c4525f",
+    "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/bot/messageHandler.ts": "ba174d214f9981a9d0e2763c080cac84660cb54f8b8540bb74b0b3bc471d58ee",
+    "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/bot/render.ts": "940b12e1718043236990aba09d840d88056054579ced396d81a4e445fb8e43bf",
+    "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/bot/router.ts": "6a33a5c672c57b51cb711de2616222a04eb7cbd5b8eb3247b42d3fd2a2a95590",
+    "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/db/index.ts": "b83341f9b2aa00f27d5dfb75bcceadb83ac6227e7962aca3d2b4894952a1761a",
     "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/index.ts": "b6248b7d997b60e4482f62fdda02f451698fd4486ab02088ad6cc39c8705d5b6",
     "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/logger/index.ts": "7bef8357c1b76d125799630d272d2544c49e700fff978bbb2b992cd4d967493f",
     "https://raw.githubusercontent.com/vvrqd26/my-web3-tgbot-base/master/utils/index.ts": "b85fa9d21ee9deb41a22b971920f52cc8d32776b9a9daff0de95a2dd328625aa",
