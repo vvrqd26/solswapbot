@@ -23,7 +23,9 @@ const TokenView = async (query: string, swapType: SwapType) => {
     };
   }
 
-  const { price, vsTokenSymbol } = await getPrice(tokenInfo?.address || query);
+  const { price, vsTokenSymbol, id } = await getPrice(
+    tokenInfo?.address || query
+  );
 
   // console.log(banlance)
   console.log("/swap:buy:" + tokenInfo.address);
@@ -36,6 +38,9 @@ const TokenView = async (query: string, swapType: SwapType) => {
         <div>💻 Decimals: {tokenInfo?.decimals}</div>
         <div>
           🤑 Price: {price} {vsTokenSymbol}{" "}
+        </div>
+        <div>
+          🛣️ address: <code>${id}</code>
         </div>
       </div>
     ),

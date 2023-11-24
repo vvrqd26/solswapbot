@@ -1,6 +1,11 @@
 import { CallbackHandler, bot, router } from "basebot";
 import { CallbackQuery } from "npm:@types/node-telegram-bot-api";
-import { getBalance, getBalanceById, search } from "../api/token.ts";
+import {
+  getBalance,
+  getBalanceById,
+  search,
+  getBalanceByTokenAddressAndId,
+} from "../api/token.ts";
 import { getPrice } from "../api/pricev4.ts";
 import { execTx, getSwapTx } from "../api/swapv6.ts";
 import { getSlippage } from "../models/account.ts";
@@ -13,7 +18,12 @@ export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
   const custom = args[3] ?? "f";
   const confirm = args[4] ?? "f";
   const tokenInfo = await search(tokenAddress);
-  const balance = await getBalanceById(msg.from.id);
+  const balance = await getBalanceByTokenAddressAndId(
+    tokenAddress,
+    msg.from.id
+  );
+  console.log(swapType);
+  const tokenSymbol = swapType == "buy" ? "SOL" : tokenInfo?.symbol;
   const slippage = (await getSlippage(msg.from.id)).value ?? 0.5;
   if (custom == "t") {
     // 输入自定义数量
@@ -73,7 +83,10 @@ export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
           🤑 Price: {price} {vsTokenSymbol}{" "}
         </div>
         <br />
-        <div>⬩ Balance: {balance} SOL</div>⬩ {swapType} Amount: {amount} SOL{" "}
+        <div>
+          ⬩ Balance: {balance} {tokenSymbol}
+        </div>
+        ⬩ {swapType} Amount: {amount}
         <br />
       </div>
     ),
