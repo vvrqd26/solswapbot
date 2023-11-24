@@ -29,14 +29,17 @@ export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
         swapType == "buy"
           ? ["So11111111111111111111111111111111111111112", tokenAddress]
           : [tokenAddress, "So11111111111111111111111111111111111111112"];
+      console.log(msg.from.id, inputMint, outputMint, amount, slippage * 100);
       const tx = await getSwapTx(
         msg.from.id,
         inputMint,
         outputMint,
-        amount,
-        slippage * 100
+        amount * 1e9,
+        slippage * 10
       );
-      const txid = execTx(tx);
+
+      const txid = await execTx(tx);
+      console.log(txid);
       bot.sendMessage(msg.from.id, `✅ Swap transaction sent, TXID: ${txid}`);
     }
   }

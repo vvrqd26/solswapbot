@@ -16,7 +16,7 @@ export const getSwapTx = async (id:number,inputMint:string,outputMint:string,amo
     const keyPair = await getKeypair(id)
     const quoteResponse = await getQuote(inputMint,outputMint,amount,slippageBps)
 
-    const { swapTransaction } = await (
+    const res = await (
         await fetch('https://quote-api.jup.ag/v6/swap', {
           method: 'POST',
           headers: {
@@ -31,13 +31,16 @@ export const getSwapTx = async (id:number,inputMint:string,outputMint:string,amo
             wrapAndUnwrapSol: true,
             // feeAccount is optional. Use if you want to charge a fee.  feeBps must have been passed in /quote API.
             // feeAccount: "fee_account_public_key"
+
           })
         })
-      ).json();  
+      ).json(); 
+      const {swapTransaction} = res
+      console.log(swapTransaction,res,inputMint,outputMint,quoteResponse);
       
       const swapTransactionBuf = base64.toUint8Array(swapTransaction);
       const transaction = VersionedTransaction.deserialize(swapTransactionBuf);
-      console.log(transaction);
+      // console.log(transaction);
       
       // sign the transaction
       transaction.sign([keyPair]);  

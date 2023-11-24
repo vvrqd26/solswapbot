@@ -1,7 +1,7 @@
 
 
 import { Connection,clusterApiUrl,PublicKey } from "npm:@solana/web3.js"
-import {createAssociatedTokenAccount} from 'npm:@solana/spl-token'
+import {createAssociatedTokenAccount,getMint} from 'npm:@solana/spl-token'
 import { getKeypair } from "../models/account.ts";
 
 
@@ -44,11 +44,12 @@ export const search = (query:string) => {
 export const getBalanceById = async (id:number) => {
     const keyPair = await getKeypair(id)
     if (keyPair == null) return 0
-    return connection.getBalance(keyPair.publicKey)
+    return (await connection.getBalance(keyPair.publicKey))/1e9
 }
 
-export const getBalance = (publicKey:PublicKey) => {
-    return connection.getBalance(publicKey)
+export const getBalance = async (publicKey:PublicKey) => {
+    
+    return (await connection.getBalance(publicKey))/1e9
 }
 
 
