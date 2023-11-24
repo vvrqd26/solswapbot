@@ -18,10 +18,10 @@ export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
   const custom = args[3] ?? "f";
   const confirm = args[4] ?? "f";
   const tokenInfo = await search(tokenAddress);
-  const balance = await getBalanceByTokenAddressAndId(
-    tokenAddress,
-    msg.from.id
-  );
+  const balance =
+    swapType == "buy"
+      ? await getBalanceById(msg.from.id)
+      : await getBalanceByTokenAddressAndId(tokenAddress, msg.from.id);
   console.log(swapType);
   const tokenSymbol = swapType == "buy" ? "SOL" : tokenInfo?.symbol;
   const slippage = (await getSlippage(msg.from.id)).value ?? 0.5;
@@ -39,7 +39,6 @@ export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
         swapType == "buy"
           ? ["So11111111111111111111111111111111111111112", tokenAddress]
           : [tokenAddress, "So11111111111111111111111111111111111111112"];
-      console.log(msg.from.id, inputMint, outputMint, amount, slippage * 100);
       const tx = await getSwapTx(
         msg.from.id,
         inputMint,
