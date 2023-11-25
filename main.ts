@@ -18,5 +18,8 @@ bot.setMyCommands([
   {
     command: 'social',
     description: 'Get social links',
+  },{
+    command: 'my_tokens',
+    description: 'Get your tokens',
   }
 ])
