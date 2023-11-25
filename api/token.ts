@@ -52,9 +52,13 @@ export const getBalanceByTokenAddress = async (tokenAddress:string,pubkey: strin
     return res.value.uiAmount ?? 0
 }
 export const getBalanceByTokenAddressAndId = async (tokenAddress:string,id:number) =>{
-    const keyPair = await getKeypair(id)
-    if (keyPair == null) return 0
-    return await getBalanceByTokenAddress(tokenAddress,keyPair.publicKey.toBase58())
+    try {
+        const keyPair = await getKeypair(id)
+        if (keyPair == null) return 0
+        return await getBalanceByTokenAddress(tokenAddress,keyPair.publicKey.toBase58())        
+    } catch (e) {
+        return 0
+    }
 }
 
 export const getBalance = async (publicKey:PublicKey) => {

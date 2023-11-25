@@ -21,3 +21,33 @@ export const setSlippage = (id:number,s:number) => {
 export const getSlippage = (id:number) => {
     return db.get<number>(['settings',id,'slippage'])
 }
+
+export interface IMyTokenInfo {
+    symbol: string,
+    balance:number,
+    name:string,
+    price: number
+}
+export const saveMyTokens = (id:number,tokenAddress: string,tokenInfo:IMyTokenInfo) => {
+    return db.set(['my','token',id,tokenAddress],tokenInfo)
+}
+export const getMyTokens = async (id:number) => {
+    const iter = await db.list<IMyTokenInfo>({
+        prefix: ['my','token',id]
+    })
+
+    const tokens:Array<IMyTokenInfo & {address: string}> = []
+    for await (const token of iter) {
+        if (token.value.balance > 0) {
+            tokens.push({
+                address: token.key[3].toString(),
+                balance: token.value.balance,
+                symbol: token.value.symbol,
+                name: token.value.name,
+                price: token.value.price
+            })
+        }
+    }
+
+    return tokens
+}

@@ -26,17 +26,15 @@ export const StartView = async (keypair: Keypair | null) => {
 
   const btns = [
     [
-      // {
-      //     text: '📈 Buy Token',
-      //     callback_data: '/swap:buy'
-      // },
-      // {
-      //     text: '📉 Sell Token',
-      //     callback_data: '/swap:sell'
-      // }
       {
         text: "💫 Swap",
         callback_data: "/inputToken",
+      },
+    ],
+    [
+      {
+        text: "My Tokens",
+        callback_data: "/my_tokens",
       },
     ],
     [

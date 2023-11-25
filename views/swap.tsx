@@ -8,7 +8,57 @@ import {
 } from "../api/token.ts";
 import { getPrice } from "../api/pricev4.ts";
 import { execTx, getSwapTx } from "../api/swapv6.ts";
-import { getSlippage } from "../models/account.ts";
+import { IMyTokenInfo, getSlippage, saveMyTokens } from "../models/account.ts";
+
+const confirmSwap = async (
+  balance: number,
+  amount: number,
+  tokenAddress: string,
+  swapType: string,
+  msgId: string,
+  chatId: number
+) => {
+  const slippage = (await getSlippage(chatId)).value ?? 0.5;
+
+  if (balance < amount) {
+    bot.answerCallbackQuery(msgId, {
+      text: "⚠️ You don't have enough balance",
+      show_alert: true,
+    });
+  } else {
+    const [inputMint, outputMint] =
+      swapType == "buy"
+        ? ["So11111111111111111111111111111111111111112", tokenAddress]
+        : [tokenAddress, "So11111111111111111111111111111111111111112"];
+    const tx = await getSwapTx(
+      chatId,
+      inputMint,
+      outputMint,
+      amount * 1e9,
+      slippage * 10
+    );
+
+    const txid = await execTx(tx);
+    bot.sendMessage(chatId, `✅ Swap transaction sent, TXID: ${txid}`, {
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: "↩️ Main Menu",
+              callback_data: "/start",
+            },
+          ],
+          [
+            {
+              text: "📔 My Tokens",
+              callback_data: "/my_tokens",
+            },
+          ],
+        ],
+      },
+    });
+  }
+};
 
 export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
   const { args } = router.parseCommand(msg.data!);
@@ -22,36 +72,9 @@ export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
     swapType == "buy"
       ? await getBalanceById(msg.from.id)
       : await getBalanceByTokenAddressAndId(tokenAddress, msg.from.id);
-  console.log(swapType);
-  const tokenSymbol = swapType == "buy" ? "SOL" : tokenInfo?.symbol;
-  const slippage = (await getSlippage(msg.from.id)).value ?? 0.5;
-  if (custom == "t") {
-    // 输入自定义数量
-  }
-  if (confirm == "t") {
-    if (balance < amount) {
-      bot.answerCallbackQuery(msg.id, {
-        text: "⚠️ You don't have enough balance",
-        show_alert: true,
-      });
-    } else {
-      const [inputMint, outputMint] =
-        swapType == "buy"
-          ? ["So11111111111111111111111111111111111111112", tokenAddress]
-          : [tokenAddress, "So11111111111111111111111111111111111111112"];
-      const tx = await getSwapTx(
-        msg.from.id,
-        inputMint,
-        outputMint,
-        amount * 1e9,
-        slippage * 10
-      );
 
-      const txid = await execTx(tx);
-      console.log(txid);
-      bot.sendMessage(msg.from.id, `✅ Swap transaction sent, TXID: ${txid}`);
-    }
-  }
+  const tokenSymbol = swapType == "buy" ? "SOL" : tokenInfo?.symbol;
+
   if (!tokenInfo) {
     return {
       node: (
@@ -68,7 +91,22 @@ export const Swap: CallbackHandler = async (msg: CallbackQuery) => {
     };
   }
 
-  const { price, vsTokenSymbol } = await getPrice(tokenInfo?.address);
+  const { price, vsTokenSymbol } = await getPrice(tokenInfo.address);
+  if (confirm == "t") {
+    confirmSwap(balance, amount, tokenAddress, swapType, msg.id, msg.from.id);
+    if (tokenInfo && swapType == "buy") {
+      const _balance = await getBalanceByTokenAddressAndId(
+        tokenAddress,
+        msg.from.id
+      );
+      saveMyTokens(msg.from.id, tokenAddress, {
+        name: tokenInfo.name,
+        symbol: tokenInfo.symbol,
+        balance: _balance,
+        price: price,
+      });
+    }
+  }
 
   return {
     node: (
