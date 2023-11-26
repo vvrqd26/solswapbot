@@ -12,7 +12,7 @@ import { MyTokens, MyTokensQuery } from "./views/MyTokens.tsx";
 const {startWith,command,callback} = router
 
 command(startWith('/start'),Start)
-command(/^[^/].*$/,Token)
+// command(/^[^/].*$/,Token)
 command(startWith('/wallet'),Wallet)
 command(startWith('/social'),social)
 command(startWith('/my_tokens'),MyTokens)
@@ -23,5 +23,5 @@ callback(startWith('/swap'),Swap,'self')
 callback(/^\/inputToken$/,InputToken,'self')
 callback(startWith('/ia'),InputAmount,'self')
 callback(startWith('/wallet'),WalletQuery,'self')
-callback(startWith('/my_tokens'),MyTokensQuery,'self')
+// callback(startWith('/my_tokens'),MyTokensQuery,'self')
 
